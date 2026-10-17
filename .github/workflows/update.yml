@@ -1,0 +1,72 @@
+name: Aggiorna dati e pubblica
+
+on:
+  schedule:
+    - cron: "17 5 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Dipendenze
+        run: pip install -r requirements.txt
+
+      - name: Scarica e ricostruisce i dati
+        run: bash scripts/run.sh
+
+      - name: Salva i dati aggiornati nel repository
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data
+          if git diff --cached --quiet; then
+            echo "Nessuna modifica ai dati."
+          else
+            git commit -m "Aggiornamento dati $(date -u +%Y-%m-%d)"
+            git push
+          fi
+
+      - name: Prepara il sito statico
+        run: |
+          mkdir -p _site/data
+          cp index.html _site/
+          cp -r assets _site/assets
+          cp data/levels.js data/levels.csv data/levels.xlsx _site/data/
+          touch _site/.nojekyll
+
+      - name: Configura Pages
+        uses: actions/configure-pages@v5
+
+      - name: Carica l'artefatto
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Pubblica su GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

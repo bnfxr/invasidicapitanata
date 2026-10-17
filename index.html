@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="it" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Invasi della Capitanata — livelli e disponibilità idrica</title>
+  <meta name="description" content="Dati storici giornalieri su livelli e disponibilità idrica degli invasi di Occhito, Marana Capacciotti, Capaccio e San Pietro sull'Osento (Consorzio per la Bonifica della Capitanata)." />
+  <script>(function(){try{var q=new URLSearchParams(location.search).get("theme");var t=(q==="light"||q==="dark")?q:localStorage.getItem("theme");if(t!=="light"&&t!=="dark"){t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";}document.documentElement.dataset.theme=t;}catch(e){}})();</script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <link rel="stylesheet" href="assets/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@3.0.0/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="data/levels.js"></script>
+  <script src="assets/app.js" defer></script>
+</head>
+<body>
+  <header class="masthead">
+    <div class="masthead__media" aria-hidden="true"></div>
+    <div class="masthead__scrim" aria-hidden="true"></div>
+    <div class="wrap masthead__inner">
+      <div class="masthead__bar">
+        <span class="masthead__kicker">Consorzio per la Bonifica della Capitanata — GESI</span>
+        <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Cambia tema">Tema scuro</button>
+      </div>
+      <div class="masthead__text">
+        <h1>Invasi della Capitanata</h1>
+        <p class="masthead__sub">Livelli e disponibilità idrica giornaliera di Occhito, Marana Capacciotti, Capaccio e San Pietro sull'Osento.</p>
+      </div>
+    </div>
+    <p class="masthead__credit">Foto: “Diga di Occhito” di Alfaveyron — Wikimedia Commons, CC BY-SA 4.0</p>
+  </header>
+
+  <div class="databar">
+    <div class="wrap databar__inner">
+      <div class="databar__item"><span class="databar__label">Ultimo dato</span><span class="databar__value" id="meta-updated">—</span></div>
+      <div class="databar__item"><span class="databar__label">Periodo coperto</span><span class="databar__value" id="meta-range">—</span></div>
+    </div>
+  </div>
+
+  <main class="wrap">
+    <section id="dashboard" aria-labelledby="dashboard-title" class="section">
+      <div class="section-head">
+        <h2 id="dashboard-title">Situazione attuale</h2>
+        <p class="section-note">Ultimo dato per invaso, con confronto sullo stesso periodo dell'anno precedente e rispetto alla media storica.</p>
+      </div>
+      <div id="cards" class="cards"></div>
+    </section>
+
+    <section id="invasi" aria-labelledby="invasi-title" class="section">
+      <div class="section-head">
+        <h2 id="invasi-title">Gli invasi</h2>
+        <p class="section-note">Collocazione dei quattro invasi. Tocca un punto per i valori correnti.</p>
+      </div>
+      <figure class="map-box">
+        <div id="map" class="map" role="img" aria-label="Mappa degli invasi della Capitanata"></div>
+      </figure>
+      <div id="gallery" class="gallery"></div>
+    </section>
+
+    <section id="charts" aria-labelledby="charts-title" class="section">
+      <div class="section-head">
+        <h2 id="charts-title">Andamento nel tempo</h2>
+        <p class="section-note">Serie storica giornaliera. Scegli metrica, periodo e invasi.</p>
+      </div>
+      <div class="controls">
+        <div class="control">
+          <span class="control__label">Metrica</span>
+          <div class="seg" id="metric-seg">
+            <button type="button" data-metric="volume" class="active">Disponibilità (Mm³)</button>
+            <button type="button" data-metric="pct">% capacità</button>
+            <button type="button" data-metric="level">Livello (m s.l.m.)</button>
+          </div>
+        </div>
+        <div class="control">
+          <span class="control__label">Periodo</span>
+          <div class="seg" id="range-seg">
+            <button type="button" data-range="1">1 anno</button>
+            <button type="button" data-range="3">3 anni</button>
+            <button type="button" data-range="5">5 anni</button>
+            <button type="button" data-range="all" class="active">Tutto</button>
+          </div>
+        </div>
+        <div class="control">
+          <span class="control__label">Invasi</span>
+          <div class="checks" id="reservoir-chips"></div>
+        </div>
+      </div>
+      <figure class="chart-box">
+        <canvas id="mainChart" aria-label="Andamento dei livelli e della disponibilità idrica" role="img"></canvas>
+      </figure>
+      <p class="disclaimer">Dati provvisori, soggetti a revisione. I valori di “% capacità” sono indicativi: la capienza utilizzabile di riferimento è approssimativa e può essere superata temporaneamente.</p>
+    </section>
+
+    <section id="annual" aria-labelledby="annual-title" class="section">
+      <div class="section-head">
+        <h2 id="annual-title">Confronto tra anni</h2>
+        <p class="section-note">Lo stesso invaso sovrapposto per anno: utile per leggere siccità e ricariche stagionali.</p>
+      </div>
+      <div class="controls">
+        <div class="control">
+          <label class="control__label" for="annual-reservoir">Invaso</label>
+          <select id="annual-reservoir"></select>
+        </div>
+        <div class="control">
+          <span class="control__label">Metrica</span>
+          <div class="seg" id="annual-metric-seg">
+            <button type="button" data-metric="volume" class="active">Disponibilità (Mm³)</button>
+            <button type="button" data-metric="level">Livello (m s.l.m.)</button>
+          </div>
+        </div>
+      </div>
+      <figure class="chart-box">
+        <canvas id="annualChart" aria-label="Confronto tra anni" role="img"></canvas>
+      </figure>
+    </section>
+
+    <section id="stats" aria-labelledby="stats-title" class="section">
+      <div class="section-head">
+        <h2 id="stats-title">Statistiche</h2>
+        <p class="section-note">Minimi e massimi storici di disponibilità e medie annuali, sull'intera serie (dal 2018).</p>
+      </div>
+
+      <h3 class="subhead">Minimi e massimi storici</h3>
+      <div class="table-scroll">
+        <table class="data-table" id="summary-table"></table>
+      </div>
+
+      <h3 class="subhead">Medie annuali</h3>
+      <div class="table-scroll">
+        <table class="data-table" id="yearly-table"></table>
+      </div>
+    </section>
+
+    <section id="data" aria-labelledby="data-title" class="section">
+      <div class="section-head">
+        <h2 id="data-title">Dati e fonte</h2>
+      </div>
+      <div class="data-panel">
+        <p>Dati giornalieri raccolti automaticamente dall'API open data del Consorzio. Sono presenti alcune lacune reali nella fonte (giorni non rilevati), mostrate come interruzioni nelle serie. Dati pubblici, soggetti a revisione.</p>
+        <p class="downloads">
+          <a class="btn" href="https://www.bonificacapitanata.it/disponibilita-idrica/" target="_blank" rel="noopener">Fonte ufficiale</a>
+          <a class="btn btn--ghost" href="data/levels.xlsx" download>Scarica XLS</a>
+          <a class="btn btn--ghost" href="data/levels.csv" download>Scarica CSV</a>
+        </p>
+        <dl class="source-list" id="source-list"></dl>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>Dati: <a href="https://www.bonificacapitanata.it/" target="_blank" rel="noopener">Consorzio per la Bonifica della Capitanata</a> — servizio GESI. Sito non ufficiale di rielaborazione dei dati pubblici.</p>
+      <p id="photo-credits"></p>
+      <p class="site-footer__meta">Pagina generata il <span id="generated-at">—</span>.</p>
+    </div>
+  </footer>
+</body>
+</html>

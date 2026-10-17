@@ -1,0 +1,107 @@
+{
+  "source": {
+    "name": "Consorzio per la Bonifica della Capitanata - GESI (Gestione Sistema Idrico)",
+    "api": "https://gesi.bonificacapitanata.it/api/v1/open_data/levels",
+    "page": "https://www.bonificacapitanata.it/disponibilita-idrica/",
+    "retrieved": "2026-10-17"
+  },
+  "units": {
+    "level": "m s.l.m.",
+    "available_volume": "m3",
+    "capacity": "m3"
+  },
+  "reservoirs": {
+    "Occhito": {
+      "name": "Invaso e diga di Occhito",
+      "river": "Fortore",
+      "municipality": "Carlantino (FG)",
+      "province": "Foggia",
+      "region": "Puglia",
+      "boundary": "Confine Puglia / Molise",
+      "lat": 41.6191133,
+      "lon": 14.9747512,
+      "commissioned": 1966,
+      "type": "Diga in materiali sciolti con struttura di tenuta interna",
+      "total_capacity_m3": 333000000,
+      "usable_capacity_m3": 250000000,
+      "laminazione_m3": 43000000,
+      "dead_volume_m3": 40000000,
+      "max_regulation_level_m": 195.0,
+      "max_invasion_level_m": 198.0,
+      "display_order": 1,
+      "photo": {
+        "asset": "assets/img/occhito-hero.jpg",
+        "caption": "Diga di Occhito sul fiume Fortore",
+        "author": "Alfaveyron",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Diga_di_Occhito.jpg",
+        "generic": false
+      }
+    },
+    "Capacciotti": {
+      "name": "Invaso e diga di Marana Capacciotti",
+      "river": "Marana Capacciotti",
+      "municipality": "Cerignola (FG)",
+      "province": "Foggia",
+      "region": "Puglia",
+      "lat": 41.15836,
+      "lon": 15.8179004,
+      "total_capacity_m3": 48000000,
+      "usable_capacity_m3": 48000000,
+      "display_order": 2,
+      "photo": {
+        "asset": "assets/img/capacciotti.jpg",
+        "caption": "Diga di Marana Capacciotti, Cerignola",
+        "author": "Giampiero Lionetti",
+        "license": "CC BY 4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Diga_di_Marana_Capacciotti,_2024_08_25_18_52_IMG_0050.jpg",
+        "generic": false
+      }
+    },
+    "Capaccio": {
+      "name": "Invaso e diga di Capaccio",
+      "river": "Celone",
+      "municipality": "Lucera (FG)",
+      "province": "Foggia",
+      "region": "Puglia",
+      "lat": 41.4317496,
+      "lon": 15.435276,
+      "total_capacity_m3": 25820000,
+      "usable_capacity_m3": 16800000,
+      "dead_volume_m3": 1900000,
+      "display_order": 3,
+      "photo": {
+        "asset": "assets/img/capaccio.jpg",
+        "caption": "Paesaggio del Tavoliere, presso Lucera (immagine generica)",
+        "author": "ALC",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Segezia_panorama.jpg",
+        "generic": true
+      }
+    },
+    "Osento": {
+      "name": "Invaso e diga di San Pietro sull'Osento",
+      "river": "Osento",
+      "municipality": "Monteverde (AV)",
+      "province": "Avellino",
+      "region": "Campania",
+      "lat": 41.0146782,
+      "lon": 15.4983314,
+      "total_capacity_m3": 17100000,
+      "usable_capacity_m3": 17100000,
+      "display_order": 4,
+      "photo": {
+        "asset": "assets/img/osento.jpg",
+        "caption": "Monteverde (AV), presso la diga di San Pietro sull'Osento (immagine generica)",
+        "author": "Thecinic",
+        "license": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Monteverde.JPG",
+        "generic": true
+      }
+    }
+  }
+}
