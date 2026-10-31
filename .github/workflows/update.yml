@@ -3,6 +3,15 @@ name: Aggiorna dati e pubblica
 on:
   schedule:
     - cron: "17 5 * * *"
+    - cron: "17 17 * * *"
+  push:
+    branches: [main]
+    paths:
+      - "data/**"
+      - "index.html"
+      - "assets/**"
+      - "scripts/**"
+      - ".github/workflows/update.yml"
   workflow_dispatch: {}
 
 permissions:
@@ -29,8 +38,44 @@ jobs:
       - name: Dipendenze
         run: pip install -r requirements.txt
 
+      - name: Avvia proxy Cloudflare WARP
+        run: |
+          docker run -d --name warp \
+            --cap-add NET_ADMIN --cap-add SYS_ADMIN \
+            -p 1080:1080 \
+            caomingjun/warp@sha256:2891b92420a193a49c74cbd4387bee91f5c35fbc487fca8e8f739baed52c1d2b
+          for i in $(seq 1 45); do
+            if curl -fsS --max-time 5 --socks5-hostname 127.0.0.1:1080 \
+                 https://www.cloudflare.com/cdn-cgi/trace | grep -q '^warp=on$'; then
+              echo "WARP connesso:"
+              curl -sS --socks5-hostname 127.0.0.1:1080 \
+                https://www.cloudflare.com/cdn-cgi/trace | grep -E '^(ip|loc|warp)='
+              exit 0
+            fi
+            sleep 2
+          done
+          echo "WARP non connesso"
+          docker logs warp
+          exit 1
+
       - name: Scarica e ricostruisce i dati
+        env:
+          HTTP_PROXY: socks5h://127.0.0.1:1080
+          HTTPS_PROXY: socks5h://127.0.0.1:1080
+          ALL_PROXY: socks5h://127.0.0.1:1080
         run: bash scripts/run.sh
+
+      - name: Riepilogo download
+        if: always()
+        run: cat data/fetch_summary.json || true
+
+      - name: Carica riepilogo download
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: fetch-summary
+          path: data/fetch_summary.json
+          if-no-files-found: ignore
 
       - name: Salva i dati aggiornati nel repository
         run: |

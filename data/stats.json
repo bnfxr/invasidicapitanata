@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-10-17T20:30:30",
+  "generated_at": "2026-10-31T16:06:47",
   "stats": {
     "Occhito": {
-      "points": 3200,
+      "points": 3214,
       "first_date": "2018-01-01",
-      "last_date": "2026-10-16",
-      "latest_level_m": 180.6,
-      "latest_available_m3": 83854600.0,
+      "last_date": "2026-10-30",
+      "latest_level_m": 180.13,
+      "latest_available_m3": 79231680.0,
       "level_min": {
         "value": 173.19,
         "date": "2024-12-21"
@@ -15,7 +15,7 @@
         "value": 194.6,
         "date": "2023-05-25"
       },
-      "level_avg": 184.6,
+      "level_avg": 184.58,
       "volume_min": {
         "value": 26666340.0,
         "date": "2024-12-21"
@@ -24,15 +24,15 @@
         "value": 241920600.0,
         "date": "2023-05-25"
       },
-      "volume_avg": 127150489.64,
-      "latest_pct_usable": 33.5
+      "volume_avg": 126950663.7,
+      "latest_pct_usable": 31.7
     },
     "Capacciotti": {
-      "points": 3199,
+      "points": 3213,
       "first_date": "2018-01-01",
-      "last_date": "2026-10-16",
-      "latest_level_m": 165.8,
-      "latest_available_m3": 4143600.0,
+      "last_date": "2026-10-30",
+      "latest_level_m": 167.7,
+      "latest_available_m3": 5655900.0,
       "level_min": {
         "value": 162.5,
         "date": "2024-08-17"
@@ -41,7 +41,7 @@
         "value": 191.25,
         "date": "2023-06-27"
       },
-      "level_avg": 180.27,
+      "level_avg": 180.21,
       "volume_min": {
         "value": 2026200.0,
         "date": "2024-08-17"
@@ -50,15 +50,15 @@
         "value": 48211900.0,
         "date": "2023-06-27"
       },
-      "volume_avg": 25232823.06,
-      "latest_pct_usable": 8.6
+      "volume_avg": 25144903.5,
+      "latest_pct_usable": 11.8
     },
     "Capaccio": {
-      "points": 3196,
+      "points": 3210,
       "first_date": "2018-01-01",
-      "last_date": "2026-10-16",
-      "latest_level_m": 142.22,
-      "latest_available_m3": 6463000.0,
+      "last_date": "2026-10-30",
+      "latest_level_m": 141.68,
+      "latest_available_m3": 5588000.0,
       "level_min": {
         "value": 137.39,
         "date": "2024-12-13"
@@ -76,13 +76,13 @@
         "value": 19116000.0,
         "date": "2026-04-05"
       },
-      "volume_avg": 7180780.87,
-      "latest_pct_usable": 38.5
+      "volume_avg": 7175564.85,
+      "latest_pct_usable": 33.3
     },
     "Osento": {
-      "points": 3196,
+      "points": 3210,
       "first_date": "2018-01-01",
-      "last_date": "2026-10-16",
+      "last_date": "2026-10-30",
       "latest_level_m": 434.7,
       "latest_available_m3": 952000.0,
       "level_min": {
@@ -93,7 +93,7 @@
         "value": 463.0,
         "date": "2023-06-27"
       },
-      "level_avg": 447.1,
+      "level_avg": 447.04,
       "volume_min": {
         "value": 850000.0,
         "date": "2024-08-17"
@@ -102,7 +102,7 @@
         "value": 17100000.0,
         "date": "2023-06-27"
       },
-      "volume_avg": 6381467.61,
+      "volume_avg": 6357780.31,
       "latest_pct_usable": 5.6
     }
   }
