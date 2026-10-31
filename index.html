@@ -34,7 +34,7 @@
   <div class="databar">
     <div class="wrap databar__inner">
       <div class="databar__item"><span class="databar__label">Ultimo dato</span><span class="databar__value" id="meta-updated">—</span></div>
-      <div class="databar__item"><span class="databar__label">Periodo coperto</span><span class="databar__value" id="meta-range">—</span></div>
+      <div class="databar__item databar__item--range"><span class="databar__label">Periodo coperto</span><span class="databar__value" id="meta-range">—</span></div>
     </div>
   </div>
 
@@ -47,15 +47,27 @@
       <div id="cards" class="cards"></div>
     </section>
 
-    <section id="invasi" aria-labelledby="invasi-title" class="section">
+    <section id="annual" aria-labelledby="annual-title" class="section">
       <div class="section-head">
-        <h2 id="invasi-title">Gli invasi</h2>
-        <p class="section-note">Collocazione dei quattro invasi. Tocca un punto per i valori correnti.</p>
+        <h2 id="annual-title">Confronto tra anni</h2>
+        <p class="section-note">Lo stesso invaso sovrapposto per anno: utile per leggere siccità e ricariche stagionali.</p>
       </div>
-      <figure class="map-box">
-        <div id="map" class="map" role="img" aria-label="Mappa degli invasi della Capitanata"></div>
+      <div class="controls">
+        <div class="control">
+          <label class="control__label" for="annual-reservoir">Invaso</label>
+          <select id="annual-reservoir"></select>
+        </div>
+        <div class="control">
+          <span class="control__label">Metrica</span>
+          <div class="seg" id="annual-metric-seg">
+            <button type="button" data-metric="volume" class="active">Disponibilità (Mm³)</button>
+            <button type="button" data-metric="level">Livello (m s.l.m.)</button>
+          </div>
+        </div>
+      </div>
+      <figure class="chart-box">
+        <canvas id="annualChart" aria-label="Confronto tra anni" role="img"></canvas>
       </figure>
-      <div id="gallery" class="gallery"></div>
     </section>
 
     <section id="charts" aria-labelledby="charts-title" class="section">
@@ -92,29 +104,6 @@
       <p class="disclaimer">Dati provvisori, soggetti a revisione. I valori di “% capacità” sono indicativi: la capienza utilizzabile di riferimento è approssimativa e può essere superata temporaneamente.</p>
     </section>
 
-    <section id="annual" aria-labelledby="annual-title" class="section">
-      <div class="section-head">
-        <h2 id="annual-title">Confronto tra anni</h2>
-        <p class="section-note">Lo stesso invaso sovrapposto per anno: utile per leggere siccità e ricariche stagionali.</p>
-      </div>
-      <div class="controls">
-        <div class="control">
-          <label class="control__label" for="annual-reservoir">Invaso</label>
-          <select id="annual-reservoir"></select>
-        </div>
-        <div class="control">
-          <span class="control__label">Metrica</span>
-          <div class="seg" id="annual-metric-seg">
-            <button type="button" data-metric="volume" class="active">Disponibilità (Mm³)</button>
-            <button type="button" data-metric="level">Livello (m s.l.m.)</button>
-          </div>
-        </div>
-      </div>
-      <figure class="chart-box">
-        <canvas id="annualChart" aria-label="Confronto tra anni" role="img"></canvas>
-      </figure>
-    </section>
-
     <section id="stats" aria-labelledby="stats-title" class="section">
       <div class="section-head">
         <h2 id="stats-title">Statistiche</h2>
@@ -130,6 +119,17 @@
       <div class="table-scroll">
         <table class="data-table" id="yearly-table"></table>
       </div>
+    </section>
+
+    <section id="invasi" aria-labelledby="invasi-title" class="section">
+      <div class="section-head">
+        <h2 id="invasi-title">Gli invasi</h2>
+        <p class="section-note">Collocazione dei quattro invasi. Tocca un punto per i valori correnti.</p>
+      </div>
+      <figure class="map-box">
+        <div id="map" class="map" role="img" aria-label="Mappa degli invasi della Capitanata"></div>
+      </figure>
+      <div id="gallery" class="gallery"></div>
     </section>
 
     <section id="data" aria-labelledby="data-title" class="section">

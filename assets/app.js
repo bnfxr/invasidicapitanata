@@ -133,17 +133,19 @@
 
   function renderCards() {
     var last = mainLastDate();
-    var prevIso = minusYears(last, 1);
     var C = colors();
     var box = document.getElementById("cards");
     box.innerHTML = "";
     RES.forEach(function (name) {
       var cur = pointOnOrBefore(name, last);
       if (!cur) return;
+      var refIso = cur[0];
+      var prevIso = minusYears(refIso, 1);
       var prev = pointOnOrBefore(name, prevIso);
       var pct = pctOf(name, cur[2]);
-      var avgVol = historicalAvg(name, last, "volume");
-      var vsAvg = avgVol ? (cur[2] / avgVol) * 100 : null;
+      var avgVol = historicalAvg(name, refIso, "volume");
+      var avgText = avgVol == null ? "—" : fmtMm3(avgVol) + " Mm³";
+      var refYear = parseInt(refIso.slice(0, 4), 10) - 1;
       var volDiff = prev && cur[2] != null && prev[2] != null ? (cur[2] - prev[2]) / 1e6 : null;
       var cls = volDiff == null ? "flat" : (Math.abs(volDiff) < 0.01 ? "flat" : (volDiff > 0 ? "up" : "down"));
 
@@ -156,7 +158,7 @@
       html += "<div class='card__row'><span>% capacità utilizzabile</span><b>" + (pct == null ? "—" : fmt(pct, 1) + "%") + "</b></div>";
       html += "<div class='meter'><span style='width:" + (pct == null ? 0 : Math.min(100, Math.max(0, pct))) + "%'></span></div>";
       html += "<div class='card__row'><span>Livello</span><b>" + fmtLevel(cur[1]) + " m</b></div>";
-      html += "<div class='card__row'><span>vs media 2018–" + (parseInt(last.slice(0, 4), 10) - 1) + "</span><b>" + (vsAvg == null ? "—" : fmt(vsAvg, 0) + "%") + "</b></div>";
+      html += "<div class='card__row'><span>Media 2018–" + refYear + "</span><b title='Media dello stesso giorno negli anni 2018–" + refYear + "'>" + avgText + "</b></div>";
       if (volDiff != null) {
         html += "<div class='card__delta " + cls + "'>" + (volDiff >= 0 ? "+" : "−") + fmt(Math.abs(volDiff), 2) + " Mm³ rispetto a un anno fa</div>";
       }
