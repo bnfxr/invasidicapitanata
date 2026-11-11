@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-11-10T22:23:24",
+  "generated_at": "2026-11-11T12:47:17",
   "stats": {
     "Occhito": {
-      "points": 3225,
+      "points": 3226,
       "first_date": "2018-01-01",
-      "last_date": "2026-11-10",
-      "latest_level_m": 180.25,
-      "latest_available_m3": 80412000.0,
+      "last_date": "2026-11-11",
+      "latest_level_m": 180.22,
+      "latest_available_m3": 80116920.0,
       "level_min": {
         "value": 173.19,
         "date": "2024-12-21"
@@ -24,13 +24,13 @@
         "value": 241920600.0,
         "date": "2023-05-25"
       },
-      "volume_avg": 126791500.19,
-      "latest_pct_usable": 32.2
+      "volume_avg": 126777031.93,
+      "latest_pct_usable": 32.0
     },
     "Capacciotti": {
-      "points": 3224,
+      "points": 3225,
       "first_date": "2018-01-01",
-      "last_date": "2026-11-10",
+      "last_date": "2026-11-11",
       "latest_level_m": 168.95,
       "latest_available_m3": 6790300.0,
       "level_min": {
@@ -50,13 +50,13 @@
         "value": 48211900.0,
         "date": "2023-06-27"
       },
-      "volume_avg": 25080850.61,
+      "volume_avg": 25075179.12,
       "latest_pct_usable": 14.1
     },
     "Capaccio": {
-      "points": 3221,
+      "points": 3222,
       "first_date": "2018-01-01",
-      "last_date": "2026-11-10",
+      "last_date": "2026-11-11",
       "latest_level_m": 141.83,
       "latest_available_m3": 5828000.0,
       "level_min": {
@@ -76,13 +76,13 @@
         "value": 19116000.0,
         "date": "2026-04-05"
       },
-      "volume_avg": 7170769.07,
+      "volume_avg": 7170352.32,
       "latest_pct_usable": 34.7
     },
     "Osento": {
-      "points": 3221,
+      "points": 3222,
       "first_date": "2018-01-01",
-      "last_date": "2026-11-10",
+      "last_date": "2026-11-11",
       "latest_level_m": 435.2,
       "latest_available_m3": 1040000.0,
       "level_min": {
@@ -102,7 +102,7 @@
         "value": 17100000.0,
         "date": "2023-06-27"
       },
-      "volume_avg": 6339483.54,
+      "volume_avg": 6337838.25,
       "latest_pct_usable": 6.1
     }
   }
