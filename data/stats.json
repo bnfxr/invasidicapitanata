@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-11-18T23:24:30",
+  "generated_at": "2026-11-19T14:29:41",
   "stats": {
     "Occhito": {
-      "points": 3233,
+      "points": 3234,
       "first_date": "2018-01-01",
-      "last_date": "2026-11-18",
+      "last_date": "2026-11-19",
       "latest_level_m": 180.2,
       "latest_available_m3": 79920200.0,
       "level_min": {
@@ -24,15 +24,15 @@
         "value": 241920600.0,
         "date": "2023-05-25"
       },
-      "volume_avg": 126674818.26,
+      "volume_avg": 126660361.05,
       "latest_pct_usable": 32.0
     },
     "Capacciotti": {
-      "points": 3232,
+      "points": 3233,
       "first_date": "2018-01-01",
-      "last_date": "2026-11-18",
-      "latest_level_m": 169.45,
-      "latest_available_m3": 7259500.0,
+      "last_date": "2026-11-19",
+      "latest_level_m": 169.6,
+      "latest_available_m3": 7400200.0,
       "level_min": {
         "value": 162.5,
         "date": "2024-08-17"
@@ -50,15 +50,15 @@
         "value": 48211900.0,
         "date": "2023-06-27"
       },
-      "volume_avg": 25035896.65,
-      "latest_pct_usable": 15.1
+      "volume_avg": 25030441.74,
+      "latest_pct_usable": 15.4
     },
     "Capaccio": {
-      "points": 3229,
+      "points": 3230,
       "first_date": "2018-01-01",
-      "last_date": "2026-11-18",
-      "latest_level_m": 141.72,
-      "latest_available_m3": 5652000.0,
+      "last_date": "2026-11-19",
+      "latest_level_m": 141.71,
+      "latest_available_m3": 5636000.0,
       "level_min": {
         "value": 137.39,
         "date": "2024-12-13"
@@ -76,15 +76,15 @@
         "value": 19116000.0,
         "date": "2026-04-05"
       },
-      "volume_avg": 7167209.41,
-      "latest_pct_usable": 33.6
+      "volume_avg": 7166735.35,
+      "latest_pct_usable": 33.5
     },
     "Osento": {
-      "points": 3229,
+      "points": 3230,
       "first_date": "2018-01-01",
-      "last_date": "2026-11-18",
-      "latest_level_m": 435.25,
-      "latest_available_m3": 1050000.0,
+      "last_date": "2026-11-19",
+      "latest_level_m": 435.3,
+      "latest_available_m3": 1060000.0,
       "level_min": {
         "value": 428.5,
         "date": "2018-01-23"
@@ -102,8 +102,8 @@
         "value": 17100000.0,
         "date": "2023-06-27"
       },
-      "volume_avg": 6326359.05,
-      "latest_pct_usable": 6.1
+      "volume_avg": 6324728.09,
+      "latest_pct_usable": 6.2
     }
   }
 }
