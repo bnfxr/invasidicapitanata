@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-11-24T03:20:19",
+  "generated_at": "2026-11-24T15:57:49",
   "stats": {
     "Occhito": {
-      "points": 3238,
+      "points": 3239,
       "first_date": "2018-01-01",
-      "last_date": "2026-11-23",
-      "latest_level_m": 180.16,
-      "latest_available_m3": 79526760.0,
+      "last_date": "2026-11-24",
+      "latest_level_m": 180.15,
+      "latest_available_m3": 79428400.0,
       "level_min": {
         "value": 173.19,
         "date": "2024-12-21"
@@ -24,15 +24,15 @@
         "value": 241920600.0,
         "date": "2023-05-25"
       },
-      "volume_avg": 126602408.86,
+      "volume_avg": 126587844.49,
       "latest_pct_usable": 31.8
     },
     "Capacciotti": {
-      "points": 3237,
+      "points": 3238,
       "first_date": "2018-01-01",
-      "last_date": "2026-11-23",
-      "latest_level_m": 170.1,
-      "latest_available_m3": 7884100.0,
+      "last_date": "2026-11-24",
+      "latest_level_m": 170.2,
+      "latest_available_m3": 7992500.0,
       "level_min": {
         "value": 162.5,
         "date": "2024-08-17"
@@ -41,7 +41,7 @@
         "value": 191.25,
         "date": "2023-06-27"
       },
-      "level_avg": 180.13,
+      "level_avg": 180.12,
       "volume_min": {
         "value": 2026200.0,
         "date": "2024-08-17"
@@ -50,15 +50,15 @@
         "value": 48211900.0,
         "date": "2023-06-27"
       },
-      "volume_avg": 25009053.99,
-      "latest_pct_usable": 16.4
+      "volume_avg": 25003798.72,
+      "latest_pct_usable": 16.7
     },
     "Capaccio": {
-      "points": 3234,
+      "points": 3235,
       "first_date": "2018-01-01",
-      "last_date": "2026-11-23",
-      "latest_level_m": 141.61,
-      "latest_available_m3": 5476000.0,
+      "last_date": "2026-11-24",
+      "latest_level_m": 141.58,
+      "latest_available_m3": 5428000.0,
       "level_min": {
         "value": 137.39,
         "date": "2024-12-13"
@@ -76,13 +76,13 @@
         "value": 19116000.0,
         "date": "2026-04-05"
       },
-      "volume_avg": 7164723.31,
-      "latest_pct_usable": 32.6
+      "volume_avg": 7164186.45,
+      "latest_pct_usable": 32.3
     },
     "Osento": {
-      "points": 3234,
+      "points": 3235,
       "first_date": "2018-01-01",
-      "last_date": "2026-11-23",
+      "last_date": "2026-11-24",
       "latest_level_m": 435.35,
       "latest_available_m3": 1070000.0,
       "level_min": {
@@ -102,7 +102,7 @@
         "value": 17100000.0,
         "date": "2023-06-27"
       },
-      "volume_avg": 6318217.45,
+      "volume_avg": 6316594.62,
       "latest_pct_usable": 6.3
     }
   }
