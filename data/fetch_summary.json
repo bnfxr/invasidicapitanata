@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-11-25T15:43:31",
+  "generated_at": "2026-11-26T01:00:11",
   "start": "2018-01-01",
-  "end": "2026-11-25",
+  "end": "2026-11-26",
   "refresh_days": 3,
   "stale_window_days": 30,
   "counts": {
     "ok": 3,
     "null": 0,
-    "skip": 3248,
+    "skip": 3249,
     "error": 0
   },
   "errors": []
